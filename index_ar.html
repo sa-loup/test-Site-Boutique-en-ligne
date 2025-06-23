@@ -1,440 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ريم موبايل تك</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <link rel="shortcut icon" href="./Orange Simple Clean Smartphone Repair and Service Logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles-ar.css">
-</head>
-<body>
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <a href="#">ريم موبايل تك</a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#accueil">الرئيسية</a></li>
-                    <li><a href="#produits">منتجاتنا</a></li>
-                    <li><a href="#apropos">من نحن</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
-                    <li>
-                        <a href="#" class="cart-icon" id="cart-icon">
-                            <i class="fas fa-shopping-bag"></i>
-                            <span class="cart-count">0</span>
-                        </a>
-                    </li>
-                    <li>
-                        <!-- <a href="/index.html" class="btn">Français</a> -->
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero" id="accueil">
-            <div class="hero-slideshow">
-                <!-- Images will be dynamically added by JavaScript -->
-            </div>
-            <div class="hero-content">
-                <h1>تكنولوجيا الهاتف المحمول</h1>
-                <p>اكتشف مجموعتنا الحصرية من الهواتف المحمولة والإكسسوارات عالية الجودة</p>
-                <a href="#produits" class="btn">تصفح منتجاتنا</a>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <div class="feature">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>أحدث التقنيات</h3>
-                    <p>أحدث الهواتف الذكية مع أحدث الابتكارات</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>ضمان رسمي</h3>
-                    <p>جميع منتجاتنا مضمونة وأصلية</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-truck"></i>
-                    <h3>توصيل سريع</h3>
-                    <p>شحن في غضون 48 ساعة في جميع أنحاء الجزائر</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="categories" id="categories">
-            <div class="container">
-                <h2>فئاتنا</h2>
-                <div class="category-grid">
-                    <div class="category-card" data-category="telephones">
-                        <div class="category-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3>الهواتف</h3>
-                        <p>هواتف ذكية من جميع العلامات التجارية</p>
-                        <button class="btn category-btn" data-filter="telephones">عرض الهواتف</button>
-                    </div>
-                    <div class="category-card" data-category="accessoires">
-                        <div class="category-icon">
-                            <i class="fas fa-headphones"></i>
-                        </div>
-                        <h3>الإكسسوارات</h3>
-                        <p>أغطية، شواحن، سماعات والمزيد</p>
-                        <button class="btn category-btn" data-filter="accessoires">عرض الإكسسوارات</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="brands" id="marques">
-            <div class="container">
-                <h2>علاماتنا التجارية</h2>
-                <div class="brands-grid">
-                    <div class="brand-item" data-brand="condor">CONDOR</div>
-                    <div class="brand-item" data-brand="samsung">SAMSUNG</div>
-                    <div class="brand-item" data-brand="poco">POCO</div>
-                    <div class="brand-item" data-brand="itel">ITEL</div>
-                    <div class="brand-item" data-brand="realme">REALME</div>
-                    <div class="brand-item" data-brand="redmi">REDMI</div>
-                    <div class="brand-item" data-brand="vivo">VIVO</div>
-                    <div class="brand-item" data-brand="honor">HONOR</div>
-                    <div class="brand-item" data-brand="oppo">OPPO</div>
-                    <div class="brand-item" data-brand="ice">ICE</div>
-                    <div class="brand-item" data-brand="infinix">INFINIX</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="products" id="produits">
-            <div class="container">
-                <h2>منتجاتنا</h2>
-                <p class="subtitle">اكتشف مجموعتنا من الهواتف والإكسسوارات</p>
-                
-                <div class="filter-tabs">
-                    <button class="filter-btn active" data-filter="all">الكل</button>
-                    <button class="filter-btn" data-filter="telephones">الهواتف</button>
-                    <button class="filter-btn" data-filter="accessoires">الإكسسوارات</button>
-                </div>
-                
-                <div class="product-grid" id="product-grid">
-                    <!-- Products will be dynamically added by JS -->
-                </div>
-            </div>
-        </section>
-
-        <section class="about" id="apropos">
-            <div class="container">
-                <div class="about-content">
-                    <h2>قصتنا</h2>
-                    <p>ريم موبايل تك هو شريكك الموثوق لجميع احتياجاتك في تكنولوجيا الهاتف المحمول. نحن نقدم مجموعة واسعة من الهواتف الذكية والإكسسوارات من أفضل العلامات التجارية.</p>
-                    <p>فريق الخبراء لدينا يرافقك في اختيار المنتج الذي يناسب احتياجاتك وميزانيتك تماماً.</p>
-                </div>
-                <div class="about-image">
-                    <img src="/home/ubuntu/upload/search_images/PS3BxbH3B0ty.jpg" alt="إكسسوارات الهاتف المحمول">
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonials">
-            <div class="container">
-                <h2>شهادات العملاء</h2>
-                <div class="testimonial">
-                    <p>"خدمة ممتازة ومنتجات عالية الجودة. هاتفي الجديد يعمل بشكل مثالي!"</p>
-                    <div class="author">- أحمد ك.</div>
-                </div>
-                <div class="testimonial">
-                    <p>"توصيل سريع وأسعار تنافسية. أوصي بشدة بريم موبايل تك."</p>
-                    <div class="author">- فاطمة ب.</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2>اتصل بنا</h2>
-                <form class="contact-form" action="https://formspree.io/f/xdkzdpek" method="POST">
-                    <input type="text" name="name" placeholder="اسمك" required>
-                    <input type="tel" id="phone" name="phone" placeholder="رقم هاتفك" required>
-                    <textarea name="message" placeholder="رسالتك" required></textarea>
-                    <button type="submit" class="btn">إرسال</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Cart Sidebar -->
-    <div class="cart-overlay" id="cart-overlay">
-        <div class="cart" id="cart">
-            <button class="close-cart" id="close-cart">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>سلة مشترياتك</h2>
-            <div class="cart-content" id="cart-content">
-                <!-- Cart content dynamically added -->
-                <p class="empty-cart">سلتك فارغة</p>
-            </div>
-            <div class="cart-total">
-                <h3>الإجمالي: <span id="cart-total">0.00</span> د.ج</h3>
-                <button class="btn checkout-btn" id="checkout-btn">إتمام الطلب</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Checkout Form -->
-    <div class="checkout-overlay" id="checkout-overlay">
-        <div class="checkout-form-container">
-            <button class="close-checkout" id="close-checkout">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>معلومات الشحن</h2>
-            <form id="checkout-form">
-                <div class="form-group">
-                    <label for="name">الاسم الكامل*</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">رقم الهاتف*</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="address">العنوان*</label>
-                    <textarea id="address" name="address" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="city">المدينة*</label>
-                    <input type="text" id="city" name="city" required>
-                </div>
-                <div class="form-group">
-                    <label for="country">الولاية*</label>
-                    <select id="country" name="country" required>
-                        <option value="">اختر...</option>
-                        <option value="Adrar">أدرار</option>
-                        <option value="Chlef">الشلف</option>
-                        <option value="Laghouat">الأغواط</option>
-                        <option value="Oum El Bouaghi">أم البواقي</option>
-                        <option value="Batna">باتنة</option>
-                        <option value="Béjaïa">بجاية</option>
-                        <option value="Biskra">بسكرة</option>
-                        <option value="Béchar">بشار</option>
-                        <option value="Blida">البليدة</option>
-                        <option value="Bouira">البويرة</option>
-                        <option value="Tamanrasset">تمنراست</option>
-                        <option value="Tébessa">تبسة</option>
-                        <option value="Tlemcen">تلمسان</option>
-                        <option value="Tiaret">تيارت</option>
-                        <option value="Tizi Ouzou">تيزي وزو</option>
-                        <option value="Alger">الجزائر</option>
-                        <option value="Djelfa">الجلفة</option>
-                        <option value="Jijel">جيجل</option>
-                        <option value="Sétif">سطيف</option>
-                        <option value="Saïda">سعيدة</option>
-                        <option value="Skikda">سكيكدة</option>
-                        <option value="Sidi Bel Abbès">سيدي بلعباس</option>
-                        <option value="Annaba">عنابة</option>
-                        <option value="Guelma">قالمة</option>
-                        <option value="Constantine">قسنطينة</option>
-                        <option value="Médéa">المدية</option>
-                        <option value="Mostaganem">مستغانم</option>
-                        <option value="M'Sila">المسيلة</option>
-                        <option value="Mascara">معسكر</option>
-                        <option value="Ouargla">ورقلة</option>
-                        <option value="Oran">وهران</option>
-                        <option value="El Bayadh">البيض</option>
-                        <option value="Illizi">إليزي</option>
-                        <option value="Bordj Bou Arreridj">برج بوعريريج</option>
-                        <option value="Boumerdès">بومرداس</option>
-                        <option value="El Tarf">الطارف</option>
-                        <option value="Tindouf">تندوف</option>
-                        <option value="Tissemsilt">تيسمسيلت</option>
-                        <option value="El Oued">الوادي</option>
-                        <option value="Khenchela">خنشلة</option>
-                        <option value="Souk Ahras">سوق أهراس</option>
-                        <option value="Tipaza">تيبازة</option>
-                        <option value="Mila">ميلة</option>
-                        <option value="Aïn Defla">عين الدفلى</option>
-                        <option value="Naâma">النعامة</option>
-                        <option value="Aïn Témouchent">عين تيموشنت</option>
-                        <option value="Ghardaïa">غرداية</option>
-                        <option value="Relizane">غليزان</option>
-                        <option value="Timimoun">تيميمون</option>
-                        <option value="Bordj Badji Mokhtar">برج باجي مختار</option>
-                        <option value="Ouled Djellal">أولاد جلال</option>
-                        <option value="Béni Abbès">بني عباس</option>
-                        <option value="In Salah">عين صالح</option>
-                        <option value="In Guezzam">عين قزام</option>
-                        <option value="Touggourt">تقرت</option>
-                        <option value="Djanet">جانت</option>
-                        <option value="El M'Ghair">المغير</option>
-                        <option value="El Meniaa">المنيعة</option>
-                    </select>
-                </div>
-                
-                <div class="order-summary">
-                    <h3>ملخص الطلب</h3>
-                    <div id="order-items">
-                        <!-- Items dynamically added -->
-                    </div>
-                    <div class="order-totals">
-                        <div class="subtotal">
-                            <span>المجموع الفرعي:</span>
-                            <span id="order-subtotal">0.00 د.ج</span>
-                        </div>
-                        <div class="shipping">
-                            <span>الشحن:</span>
-                            <span id="order-shipping">500.00 د.ج</span>
-                        </div>
-                        <div for="total" class="total">
-                            <span>الإجمالي:</span>
-                            <span id="order-total">500.00 د.ج</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <button id="submit-btn" type="submit" class="btn submit-order">تأكيد الطلب عبر الواتساب</button>
-            </form>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <!-- Logo Section -->
-                <div class="footer-section logo-section">
-                    <img src="./Orange Simple Clean Smartphone Repair and Service Logo.png" alt="شعار ريم موبايل تك" class="footer-logo">
-                </div>
-
-                <div class="footer-section">
-                    <h3>ريم موبايل تك</h3>
-                    <p>شريكك الموثوق في تكنولوجيا الهاتف المحمول.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h3>روابط مفيدة</h3>
-                    <ul>
-                        <li><a href="#accueil">الرئيسية</a></li>
-                        <li><a href="#produits">منتجاتنا</a></li>
-                        <li><a href="#contact">الضمان وخدمة ما بعد البيع</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>اتصال</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> الجزائر، الجزائر</li>
-                        <li><i class="fas fa-phone"></i> +213 123 45 67 89</li>
-                        <li><i class="fas fa-envelope"></i> contact@reemmobiletech.com</li>
-                    </ul>
-
-                    <h3>تابعنا</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 ريم موبايل تك. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-    <div id="image-lightbox" class="lightbox" style="display:none;">
-    <span class="lightbox-close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" src="" alt="Aperçu du produit">
-</div>
-
-<script>
-document.getElementById("checkout-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    // Données client
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const address = document.getElementById("address").value.trim();
-    const city = document.getElementById("city").value.trim();
-    const wilaya = document.getElementById("country").value.trim();
-
-    // Montants
-    const subtotal = document.getElementById("order-subtotal").innerText.trim();
-    const shipping = document.getElementById("order-shipping").innerText.trim();
-    const total = document.getElementById("order-total").innerText.trim();
-
-    // Produits ajoutés dynamiquement depuis localStorage
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    let productList = "";
-    cart.forEach((item, i) => {
-        productList += `\n🛒 منتج ${i + 1} : ${item.title_ar || item.title || item.name}
-السعر : ${item.price} د.ج
-الصورة : ${item.image || ""}\n`;
-    });
-
-    // Message WhatsApp
-    const message = `
-📦 طلب جديد من ريم موبايل تك !
-
-👤 الاسم : ${name}
-📞 الهاتف : ${phone}
-📍 العنوان : ${address}
-🏙️ المدينة : ${city}
-🏘️ الولاية : ${wilaya}
-
-🛍️ الطلب :
-${productList}
-
-📊 الملخص :
-المجموع الفرعي : ${subtotal}
-الشحن : ${shipping}
-المجموع الكلي : ${total}
-
-شكراً لثقتكم ! 📱
-`;
-
-    const numeroWhatsApp = "213782716267";
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const lightbox = document.getElementById("image-lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".lightbox-close");
-
-    document.body.addEventListener("click", function (e) {
-        if (e.target.matches(".product-card img")) {
-            lightboxImg.src = e.target.src;
-            lightbox.style.display = "flex";
-        }
-    });
-
-    closeBtn.addEventListener("click", () => {
-        lightbox.style.display = "none";
-        lightboxImg.src = "";
-    });
-
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-            lightbox.style.display = "none";
-            lightboxImg.src = "";
-        }
-    });
-});
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="main.js"></script>
-</body>
-</html>
-
