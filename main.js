@@ -227,8 +227,115 @@ document.addEventListener("DOMContentLoaded", function() {
             adminOverlay.classList.add("active");
             adminLogin.style.display = "block";
             adminPanel.style.display = "none";
+             displayAdminProducts();
         });
 
+        function displayAdminProducts() {
+    const adminProductsGrid = document.getElementById('admin-products-grid');
+    if (!adminProductsGrid) return;
+    
+    adminProductsGrid.innerHTML = '';
+    
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.className = 'admin-product-card';
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.title}" class="admin-product-image">
+            <h3 class="admin-product-title">${product.title}</h3>
+            <p class="admin-product-price">${product.price.toLocaleString()} DA</p>
+            <span class="admin-product-category">${product.category === 'telephones' ? 'Téléphone' : 'Accessoire'}</span>
+            <div class="admin-product-actions">
+                <button class="btn-edit" data-id="${product.id}">Modifier</button>
+                <button class="btn-delete" data-id="${product.id}">Supprimer</button>
+            </div>
+        `;
+        adminProductsGrid.appendChild(productElement);
+    });
+    
+    // Gestion des boutons de suppression
+    document.querySelectorAll('.btn-delete').forEach(button => {
+        button.addEventListener('click', deleteProduct);
+    });
+    
+    // Gestion des boutons de modification
+    document.querySelectorAll('.btn-edit').forEach(button => {
+        button.addEventListener('click', editProduct);
+    });
+}
+
+// Fonction pour supprimer un produit
+function deleteProduct(e) {
+    const productId = parseInt(e.target.getAttribute('data-id'));
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')) {
+        products = products.filter(p => p.id !== productId);
+        displayAdminProducts();
+        displayProducts(); // Rafraîchir aussi l'affichage principal
+        showNotification('Produit supprimé avec succès', 'success');
+    }
+}
+
+// Fonction pour modifier un produit
+function editProduct(e) {
+    const productId = parseInt(e.target.getAttribute('data-id'));
+    const product = products.find(p => p.id === productId);
+    
+    if (product) {
+        // Remplir le formulaire avec les données du produit
+        document.getElementById('product-title').value = product.title;
+        document.getElementById('product-price').value = product.price;
+        document.getElementById('product-image').value = product.image;
+        document.getElementById('product-category').value = product.category;
+        document.getElementById('product-brand').value = product.brand;
+        document.getElementById('product-description').value = product.description_fr;
+        document.getElementById('product-description-ar').value = product.description_ar;
+        
+        // Stocker l'ID du produit en cours de modification
+        document.getElementById('add-product-form').dataset.editingId = productId;
+        
+        // Changer le texte du bouton
+        document.querySelector('#add-product-form .btn-primary').textContent = 'Mettre à jour';
+        
+        // Scroll vers le formulaire
+        document.getElementById('product-title').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Modifiez la fonction addNewProduct pour gérer aussi les modifications
+function addNewProduct() {
+    const editingId = document.getElementById('add-product-form').dataset.editingId;
+    const productData = {
+        id: editingId ? parseInt(editingId) : nextProductId++,
+        title: document.getElementById('product-title').value.trim(),
+        price: parseInt(document.getElementById('product-price').value),
+        image: document.getElementById('product-image').value.trim(),
+        category: document.getElementById('product-category').value,
+        brand: document.getElementById('product-brand').value,
+        description_fr: document.getElementById('product-description').value.trim(),
+        description_ar: document.getElementById('product-description-ar').value.trim()
+    };
+    
+    if (editingId) {
+        // Mise à jour du produit existant
+        const index = products.findIndex(p => p.id === parseInt(editingId));
+        if (index !== -1) {
+            products[index] = productData;
+            showNotification('Produit mis à jour avec succès', 'success');
+        }
+    } else {
+        // Ajout d'un nouveau produit
+        products.push(productData);
+        showNotification('Produit ajouté avec succès', 'success');
+    }
+    
+    // Réinitialiser le formulaire
+    document.getElementById('add-product-form').reset();
+    delete document.getElementById('add-product-form').dataset.editingId;
+    document.querySelector('#add-product-form .btn-primary').textContent = 'Ajouter le produit';
+    
+    // Rafraîchir les affichages
+    displayAdminProducts();
+    displayProducts();
+}
         // Fermer le panneau admin
         closeAdmin.addEventListener("click", () => {
             adminOverlay.classList.remove("active");
@@ -287,8 +394,36 @@ document.addEventListener("DOMContentLoaded", function() {
             category: document.getElementById("product-category").value,
             brand: document.getElementById("product-brand").value,
             description_fr: document.getElementById("product-description").value.trim(),
-            description_ar: document.getElementById("product-description-ar").value.trim()
+            description_ar: document.getElementById("product-description-ar").value.trim()        
         };
+
+// ✅ Envoi vers NocoDB
+fetch("https://app.nocodb.com/api/v2/tables/moglpcewom1mcvs/records", {
+    method: "POST",
+    headers: {
+        "accept": "application/json",
+        "xc-token": "wa1ZuJvRaByRkaRle72BEom2kkK2k8v-jonsAzyX",
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        fields: {
+            title: newProduct.title,
+            price: newProduct.price,
+            image: newProduct.image,
+            category: newProduct.category
+        }
+    })
+})
+.then(response => response.json())
+.then(data => {
+    console.log("✅ Produit enregistré dans NocoDB :", data);
+})
+.catch(error => {
+    console.error("❌ Erreur d'enregistrement NocoDB :", error);
+});
+
+
+
 
         // Ajouter le produit à la liste
         products.push(newProduct);
